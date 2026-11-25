@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build && node build.mjs",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "build:vercel": "vite build && node build-vercel.mjs"
   },
   "keywords": [],
   "author": "",
