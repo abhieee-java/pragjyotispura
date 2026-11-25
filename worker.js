@@ -9,6 +9,11 @@ export default {
       return new Response(assets['index.html'], {headers: {'Content-Type':'text/html; charset=utf-8'}})
     }
     const asset = url.pathname.slice(1)
+    if (request.method === 'GET' && asset === 'planet.webp') {
+      return new Response(Uint8Array.from(atob(assets[asset]), char => char.charCodeAt(0)), {
+        headers: {'Content-Type': 'image/webp', 'Cache-Control': 'public, max-age=3600'},
+      })
+    }
     if (request.method === 'GET' && Object.hasOwn(assets, asset) && /\.(js|css)$/.test(asset)) {
       const type = asset.endsWith('.css') ? 'text/css' : 'text/javascript'
       return new Response(assets[asset], {headers: {'Content-Type': type + '; charset=utf-8'}})
