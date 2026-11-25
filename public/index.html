@@ -139,6 +139,28 @@ input::placeholder { color: #bdb4cb; }
   .row { flex-direction: column; }
   .row button { align-self: stretch; }
 }
+
+.planet-terrain { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .planet-terrain {
+    display: block;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent 76%, #000 93%);
+  }
+  .planet-terrain img {
+    position: absolute;
+    inset: 0;
+    animation: terrain-pass 32s linear infinite;
+  }
+  .planet-terrain img + img { animation-delay: -16s; }
+}
+@keyframes terrain-pass {
+  0% { opacity: 0; transform: translateX(-6%) scale(1.16); }
+  32%, 65% { opacity: .88; }
+  100% { opacity: 0; transform: translateX(6%) scale(1.16); }
+}
 </style>
 <link rel="stylesheet" href="/waitlist.css">
 <script type="module" src="/waitlist.js"></script>
@@ -152,7 +174,9 @@ input::placeholder { color: #bdb4cb; }
 <div id="waitlist-form"></div>
 <noscript>Enable JavaScript to join the waitlist.</noscript>
 </main>
-<div class="planet" aria-hidden="true"><img src="/planet.webp" alt="" width="1585" height="992" fetchpriority="high"></div>
+<div class="planet" aria-hidden="true"><img src="/planet.webp" alt="" width="1585" height="992" fetchpriority="high">
+  <div class="planet-terrain"><img src="/planet.webp" alt=""><img src="/planet.webp" alt=""></div>
+</div>
 </div>
 </body>
 </html>
