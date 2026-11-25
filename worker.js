@@ -2,6 +2,29 @@ const response = (message, status) => Response.json({message}, {
   status, headers: {'Cache-Control': 'no-store'}
 })
 
+let earthVideo
+function serveEarthVideo(request, encoded) {
+  earthVideo ??= Uint8Array.from(atob(encoded), char => char.charCodeAt(0))
+  const length = earthVideo.length
+  const headers = {
+    'Content-Type': 'video/mp4',
+    'Accept-Ranges': 'bytes',
+    'Cache-Control': 'public, max-age=3600',
+  }
+  const match = /^bytes=(\d*)-(\d*)$/.exec(request.headers.get('Range') ?? '')
+  if (!match || (!match[1] && !match[2])) {
+    return new Response(earthVideo, {headers: {...headers, 'Content-Length': String(length)}})
+  }
+  const start = match[1] ? Number(match[1]) : Math.max(0, length - Number(match[2]))
+  const end = match[1] && match[2] ? Math.min(Number(match[2]), length - 1) : length - 1
+  if (start > end) return new Response(null, {status: 416, headers: {...headers, 'Content-Range': `bytes */${length}`}})
+  return new Response(earthVideo.slice(start, end + 1), {status: 206, headers: {
+    ...headers,
+    'Content-Range': `bytes ${start}-${end}/${length}`,
+    'Content-Length': String(end - start + 1),
+  }})
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
@@ -9,6 +32,7 @@ export default {
       return new Response(assets['index.html'], {headers: {'Content-Type':'text/html; charset=utf-8'}})
     }
     const asset = url.pathname.slice(1)
+    if (request.method === 'GET' && asset === 'earth-rotation.mp4') return serveEarthVideo(request, assets[asset])
     if (request.method === 'GET' && asset === 'planet.webp') {
       return new Response(Uint8Array.from(atob(assets[asset]), char => char.charCodeAt(0)), {
         headers: {'Content-Type': 'image/webp', 'Cache-Control': 'public, max-age=3600'},

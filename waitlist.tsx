@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { createRoot } from 'react-dom/client'
 import ParticleButton, { type ParticleButtonStatus } from '@/components/kokonutui/particle-button'
 import './waitlist.css'
+import './earth-motion'
 
 function WaitlistForm() {
   const [status, setStatus] = useState<ParticleButtonStatus>('idle')
