@@ -3,66 +3,168 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080809">
+<meta name="theme-color" content="#09090e">
 <meta name="description" content="Join the waitlist for launch updates on government tender and technology services.">
 <title>Join the waitlist</title>
 <style>
-:root{font-family:system-ui,sans-serif;color:#faf8f5;background:#080809;color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;min-width:0}
-.stage{position:relative;isolation:isolate;overflow:hidden;min-height:max(100svh,660px);display:grid;justify-items:center;background:radial-gradient(ellipse at 50% 81%,#401c13 0%,#110c0b 29%,#080809 61%)}
-main{width:min(100% - 40px,620px);align-self:start;margin-top:clamp(105px,19svh,200px);padding-bottom:155px;text-align:center}
-.eyebrow{margin:0 0 19px;color:#ffa870;font-size:.875rem;font-weight:650;letter-spacing:.22em;text-transform:uppercase}
-h1{margin:0;font-size:clamp(2.85rem,7vw,5.65rem);line-height:.99;font-weight:650;letter-spacing:-.073em;text-wrap:balance}
-h1 em{font-style:normal;color:#ffad7b}
-@supports (background-clip:text){
-  h1 em{
-    background-image:linear-gradient(105deg,#ffad7b 35%,#fff6e5 49%,#ffad7b 63%);
-    background-size:240% 100%;
-    background-position:100% 50%;
-    background-clip:text;
-    color:transparent;
+:root {
+  font-family: system-ui, sans-serif;
+  color: #f7f5fb;
+  background: #09090e;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  justify-items: center;
+  overflow: hidden;
+  min-height: max(100svh, 620px);
+  background:
+    radial-gradient(ellipse 52% 45% at 50% 76%, #68529b 0%, #302549 34%, transparent 100%),
+    radial-gradient(ellipse 65% 52% at 50% 72%, #17142a, #09090e 88%);
+}
+main {
+  width: min(100% - 40px, 720px);
+  align-self: start;
+  margin-top: clamp(100px, 24svh, 235px);
+  padding-bottom: 130px;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 19px;
+  padding: 5px 11px;
+  border: 1px solid #c8b6ff29;
+  border-radius: 999px;
+  background: #1b1725;
+  color: #e4d9fa;
+  font-size: .875rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c9adff;
+  box-shadow: 0 0 9px #b892ff;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.9rem, 7vw, 5.2rem);
+  font-weight: 625;
+  letter-spacing: -.065em;
+  line-height: 1.01;
+}
+h1 em {
+  font: italic 400 1.09em/.95 Georgia, serif;
+  letter-spacing: -.055em;
+  color: #e0d3ff;
+}
+@supports (background-clip: text) {
+  h1 em {
+    background: linear-gradient(105deg, #e0d3ff 32%, #fff 50%, #e0d3ff 68%) 100% 50% / 240% 100%;
+    background-clip: text;
+    color: transparent;
   }
-  @media(prefers-reduced-motion:no-preference){
-    h1 em{animation:shimmer 4.8s ease-in-out infinite}
+  @media (prefers-reduced-motion: no-preference) {
+    h1 em { animation: shimmer 5.8s ease-in-out infinite; }
   }
 }
-@keyframes shimmer{0%,18%{background-position:100% 50%}65%,100%{background-position:0% 50%}}
-
-.description{margin:21px auto 29px;max-width:390px;color:#c5bdba;font-size:1.03rem;line-height:1.6;text-wrap:balance}
-form{max-width:490px;margin-inline:auto}
-.label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.row{display:flex;gap:6px;padding:5px;border:1px solid #554036;border-radius:10px;background:#111011;box-shadow:0 15px 45px #0006}
-input,button{font:inherit;border:0;border-radius:6px;min-height:49px;padding:12px 15px}
-input{min-width:0;flex:1;background:transparent;color:#fff}
-input::placeholder{color:#b1a8a4}
-button{background:#ffad6e;color:#21130d;font-weight:700;cursor:pointer;white-space:nowrap}
-button:hover{background:#ffbf90}button:disabled{opacity:.7;cursor:wait}
-:focus-visible{outline:2px solid #ffc5a0;outline-offset:2px}
-.note,#status{font-size:.875rem;line-height:1.5;color:#c5bdba;margin:13px 0 0}
-#status{min-height:21px;color:#ffc49f;margin-top:7px}
-.horizon{position:absolute;z-index:-1;pointer-events:none;left:50%;top:max(74%,calc(100% - 240px));width:clamp(690px,123vw,1830px);aspect-ratio:2.45;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse at 50% 0%,#1e1618,#0a090b 45%);border:1px solid #713a27;box-shadow:0 -12px 65px #dc5f2933}
-.horizon::before,.horizon::after{content:"";position:absolute;inset:-2px;border-radius:inherit;border:3px solid transparent;border-top-color:#ff9357;mask-image:radial-gradient(ellipse at 50% 0%,#000 4%,transparent 58%)}
-.horizon::before{filter:blur(10px);border-width:12px}
-.horizon::after{filter:drop-shadow(0 0 6px #ff7131);border-top-color:#ffba7e}
-@media(max-width:480px){main{margin-top:clamp(92px,16svh,135px)}.row{flex-direction:column}.row button{width:100%}.horizon{top:max(77%,calc(100% - 180px))}}
+@keyframes shimmer { 0%, 18% { background-position: 100% 50%; } 65%, 100% { background-position: 0% 50%; } }
+.description {
+  max-width: 390px;
+  margin: 19px auto 24px;
+  color: #d3cbdc;
+  font-size: 1rem;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+form { max-width: 420px; margin-inline: auto; }
+.row {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid #c8b6ff36;
+  border-radius: 8px;
+  background: #100e17;
+  box-shadow: 0 8px 30px #08070d6b;
+}
+.row:focus-within { border-color: #a38bd7; }
+input, button {
+  min-height: 45px;
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 5px;
+  font: inherit;
+}
+input { min-width: 0; flex: 1; background: transparent; color: #fff; }
+input::placeholder { color: #bdb4cb; }
+.row button { background: #f2ebff; color: #201732; font-weight: 650; cursor: pointer; }
+.row button:hover { background: #e0ceff; }
+.row button:disabled { opacity: .75; cursor: wait; }
+.row button[data-status="error"] { background: #ffd6df; }
+:focus-visible { outline: 2px solid #cdb2ff; outline-offset: 2px; }
+.note { color: #ddd4ed; margin: 12px 0 0; font-size: .875rem; line-height: 1.5; }
+.stars {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 24% 59%, #c7b1ff88 0 1px, transparent 2px),
+    radial-gradient(circle at 33% 68%, #d4c1ff88 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 64%, #e8daff88 0 1px, transparent 2px),
+    radial-gradient(circle at 75% 57%, #e8daff55 0 1px, transparent 2px),
+    radial-gradient(circle at 61% 71%, #e8daff88 0 1px, transparent 2px),
+    radial-gradient(circle at 18% 65%, #e8daff55 0 1px, transparent 2px);
+}
+.horizon {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: max(76%, 490px) auto auto 50%;
+  width: max(125vw, 960px);
+  aspect-ratio: 3.85;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 0%, #151420, #09090e 38%);
+}
+.horizon::before, .horizon::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: inherit;
+  border-top: 2px solid #faf4ff;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 6%, transparent 69%);
+}
+.horizon::before { border-top-width: 13px; filter: blur(13px); }
+.horizon::after { filter: drop-shadow(0 0 4px #dfcbff); }
+@media (max-width: 460px) {
+  main { margin-top: clamp(78px, 18svh, 150px); }
+  .row button { font-size: .875rem; padding-inline: 9px; }
+  input { padding-inline: 9px; }
+  .horizon { inset-block-start: max(75%, 455px); }
+}
 </style>
-<script defer src="/clouds.js"></script>
+<link rel="stylesheet" href="/waitlist.css">
+<script type="module" src="/waitlist.js"></script>
 </head>
 <body>
 <div class="stage">
 <main>
 <p class="eyebrow">Coming soon</p>
-<h1>Join the <em>waitlist.</em></h1>
-<p class="description">We’re building a firm focused on government tenders, software, and technology services.</p>
-<form>
-<label class="label" for="email">Email address</label>
-<div class="row"><input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" maxlength="254" required><button type="submit">Join waitlist</button></div>
-<p class="note">Get an email when we launch.</p>
-<p id="status" role="status"></p>
-</form>
+<h1>Join the <br><em>waitlist.</em></h1>
+<p class="description">Government tenders, software, and technology services.</p>
+<div id="waitlist-form"></div>
 <noscript>Enable JavaScript to join the waitlist.</noscript>
 </main>
+<div class="stars" aria-hidden="true"></div>
 <div class="horizon" aria-hidden="true"></div>
 </div>
 </body>
