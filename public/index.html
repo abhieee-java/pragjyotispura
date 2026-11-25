@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080809">
+<meta name="description" content="Join the waitlist for launch updates on government tender and technology services.">
+<title>Join the waitlist</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#faf8f5;background:#080809;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-width:0}
+.stage{position:relative;isolation:isolate;overflow:hidden;min-height:max(100svh,660px);display:grid;justify-items:center;background:radial-gradient(ellipse at 50% 81%,#401c13 0%,#110c0b 29%,#080809 61%)}
+main{width:min(100% - 40px,620px);align-self:start;margin-top:clamp(105px,19svh,200px);padding-bottom:155px;text-align:center}
+.eyebrow{margin:0 0 19px;color:#ffa870;font-size:.875rem;font-weight:650;letter-spacing:.22em;text-transform:uppercase}
+h1{margin:0;font-size:clamp(2.85rem,7vw,5.65rem);line-height:.99;font-weight:650;letter-spacing:-.073em;text-wrap:balance}
+h1 em{font-style:normal;color:#ffad7b}
+@supports (background-clip:text){
+  h1 em{
+    background-image:linear-gradient(105deg,#ffad7b 35%,#fff6e5 49%,#ffad7b 63%);
+    background-size:240% 100%;
+    background-position:100% 50%;
+    background-clip:text;
+    color:transparent;
+  }
+  @media(prefers-reduced-motion:no-preference){
+    h1 em{animation:shimmer 4.8s ease-in-out infinite}
+  }
+}
+@keyframes shimmer{0%,18%{background-position:100% 50%}65%,100%{background-position:0% 50%}}
+
+.description{margin:21px auto 29px;max-width:390px;color:#c5bdba;font-size:1.03rem;line-height:1.6;text-wrap:balance}
+form{max-width:490px;margin-inline:auto}
+.label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.row{display:flex;gap:6px;padding:5px;border:1px solid #554036;border-radius:10px;background:#111011;box-shadow:0 15px 45px #0006}
+input,button{font:inherit;border:0;border-radius:6px;min-height:49px;padding:12px 15px}
+input{min-width:0;flex:1;background:transparent;color:#fff}
+input::placeholder{color:#b1a8a4}
+button{background:#ffad6e;color:#21130d;font-weight:700;cursor:pointer;white-space:nowrap}
+button:hover{background:#ffbf90}button:disabled{opacity:.7;cursor:wait}
+:focus-visible{outline:2px solid #ffc5a0;outline-offset:2px}
+.note,#status{font-size:.875rem;line-height:1.5;color:#c5bdba;margin:13px 0 0}
+#status{min-height:21px;color:#ffc49f;margin-top:7px}
+.horizon{position:absolute;z-index:-1;pointer-events:none;left:50%;top:max(74%,calc(100% - 240px));width:clamp(690px,123vw,1830px);aspect-ratio:2.45;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse at 50% 0%,#1e1618,#0a090b 45%);border:1px solid #713a27;box-shadow:0 -12px 65px #dc5f2933}
+.horizon::before,.horizon::after{content:"";position:absolute;inset:-2px;border-radius:inherit;border:3px solid transparent;border-top-color:#ff9357;mask-image:radial-gradient(ellipse at 50% 0%,#000 4%,transparent 58%)}
+.horizon::before{filter:blur(10px);border-width:12px}
+.horizon::after{filter:drop-shadow(0 0 6px #ff7131);border-top-color:#ffba7e}
+@media(max-width:480px){main{margin-top:clamp(92px,16svh,135px)}.row{flex-direction:column}.row button{width:100%}.horizon{top:max(77%,calc(100% - 180px))}}
+</style>
+<script defer src="/clouds.js"></script>
+</head>
+<body>
+<div class="stage">
+<main>
+<p class="eyebrow">Coming soon</p>
+<h1>Join the <em>waitlist.</em></h1>
+<p class="description">We’re building a firm focused on government tenders, software, and technology services.</p>
+<form>
+<label class="label" for="email">Email address</label>
+<div class="row"><input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" maxlength="254" required><button type="submit">Join waitlist</button></div>
+<p class="note">Get an email when we launch.</p>
+<p id="status" role="status"></p>
+</form>
+<noscript>Enable JavaScript to join the waitlist.</noscript>
+</main>
+<div class="horizon" aria-hidden="true"></div>
+</div>
+</body>
+</html>
